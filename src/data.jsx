@@ -13,7 +13,7 @@ export const skills = [
     id: nanoid(),
     title: 'Ext JS',
     icon: <SiSencha  className='h-16 w-16 text-emerald-500' />,
-    text: 'Highly skilled in HTML & CSS, creating performant and user-friendly interfaces for tourism-focused websites.',
+    text: 'Highly skilled in Sencha ExtJS 6, creating performant and user-friendly interfaces for tourism-focused websites.',
   },
   {
     id: nanoid(),
