@@ -3,10 +3,17 @@ import { TbWorldWww } from 'react-icons/tb';
 
 const ProjectsCard = ({ url, img, github, title, text }) => {
   return (
-    <article className='card flex flex-col lg:flex-row md:flex-row bg-white rounded-lg shadow-md hover:shadow-xl duration-300'>
-        <div className='capitalize p-8'>
+    <article className='card flex flex-col bg-white rounded-xl shadow-2xl hover:shadow-3xl duration-300 border-8 border-white overflow-hidden h-full'>
+      <div className='img-wrapper'>
+        <img
+          src={img}
+          alt={title}
+          className='w-full object-cover h-64'
+        />
+      </div>
+      <div className='capitalize p-8 flex-1 flex flex-col'>
         <h2 className='text-xl tracking-wide font-medium'>{title}</h2>
-        <p className='mt-4 text-slate-700 leading-loose'>{text}</p>
+        <p className='mt-4 text-slate-700 leading-loose flex-1'>{text}</p>
         <div className='mt-4 flex gap-x-4'>
           <a href={url}>
             <TbWorldWww className='h-8 w-8 text-slate-500 hover:text-black duration-300' />
@@ -16,14 +23,6 @@ const ProjectsCard = ({ url, img, github, title, text }) => {
           </a>
         </div>
       </div>
-      <div className='img-wrapper'>
-        <img
-          src={img}
-          alt={title}
-          className='w-full object-cover rounded-t-lg h-64'
-        />
-      </div>
-      
     </article>
   );
 };

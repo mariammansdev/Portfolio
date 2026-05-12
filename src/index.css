@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
 @layer components {
   .align-element {
     @apply mx-auto max-w-7xl px-8;
