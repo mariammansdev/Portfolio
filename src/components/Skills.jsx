@@ -20,17 +20,15 @@ const Skills = () => {
 
   useGSAP(() => {
     const cards = gsap.utils.toArray('.skill-card');
-    const scrollDistance = 150;
+    const scrollDistance = 60; // Balanced speed - noticeable but not too slow
     
     cards.forEach((card, index) => {
-      const isLastCard = index === cards.length - 1;
-      
       gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
           start: `top+=${index * scrollDistance}vh top`,
           end: `top+=${(index + 1) * scrollDistance}vh top`,
-          scrub: 2,
+          scrub: 1.5,
           ease: 'power1.inOut',
         }
       })
@@ -51,12 +49,12 @@ const Skills = () => {
       },
       {
         opacity: 1,
-        y: -190,
+        y: 0,
         scrollTrigger: {
           trigger: containerRef.current,
-          start: `top+=${skills.length * 150}vh top`,
-          end: `top+=${skills.length * 150 + 100}vh top`,
-          scrub: 2,
+          start: `top+=${skills.length * 60}vh top`,
+          end: `top+=${skills.length * 60 + 40}vh top`,
+          scrub: 1.5,
           ease: 'power1.inOut',
         }
       }
@@ -68,7 +66,7 @@ const Skills = () => {
       className='py-10 align-element' 
       id='skills' 
       ref={containerRef}
-      style={{ minHeight: `${skills.length * 150 + 120}vh` }}
+      style={{ minHeight: `${skills.length * 60 + 60}vh` }}
     >
       <SectionTitle text='tech stack' />
       
