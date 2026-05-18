@@ -71,8 +71,8 @@ const Skills = () => {
       <SectionTitle text='tech stack' />
       
       {/* Cards Container */}
-      <div className='relative flex items-center justify-center' >
-        <div className='sticky top-20 w-full max-w-6xl' style={{ perspective: '1000px', minHeight: '70vh' }}>
+      <div className='relative flex items-center justify-center mt-14' >
+        <div className='sticky top-20 w-full max-w-xl' style={{ perspective: '1000px', minHeight: '70vh' }}>
           {/* Animated Card Stack */}
           {skills.map((skill, index) => {
             return (

@@ -1,6 +1,6 @@
 const SkillsCard = ({ icon, title, text }) => {
   return (
-    <article className='card flex flex-col bg-white rounded-xl shadow-2xl hover:shadow-3xl duration-300 border-8 border-white overflow-hidden h-full p-8'>
+    <article className='card flex flex-col bg-white rounded-xl shadow-2xl hover:shadow-3xl duration-300 border-8 border-white overflow-hidden h-full min-h-[500px] max-w-[380px] mx-auto p-8'>
       <div className='flex justify-center mb-4'>
         <span>{icon}</span>
       </div>
