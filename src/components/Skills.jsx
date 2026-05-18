@@ -20,7 +20,7 @@ const Skills = () => {
 
   useGSAP(() => {
     const cards = gsap.utils.toArray('.skill-card');
-    const scrollDistance = 60; // Balanced speed - noticeable but not too slow
+    const scrollDistance = 70; // Balanced speed - noticeable but not too slow
     
     cards.forEach((card, index) => {
       gsap.timeline({
@@ -34,27 +34,27 @@ const Skills = () => {
       })
       .to(card, {
         y: -200,
-        rotation: cardRotations[index] + (Math.random() > 0.5 ? 30 : -30),
+        rotation: cardRotations[index] + (Math.random() > 0.5 ? 20 : -20),
         opacity: 0,
-        scale: 0.8,
+        scale: 0.6,
         ease: 'power1.out',
       });
     });
 
-    // Animate static cards to appear after all UNO cards are gone
+    // Animate static cards to appear after all cards are gone
     gsap.fromTo(staticCardsRef.current,
       {
         opacity: 0,
-        y: 50
+        y: 20
       },
       {
         opacity: 1,
-        y: 0,
+        y: -300,
         scrollTrigger: {
           trigger: containerRef.current,
           start: `top+=${skills.length * 60}vh top`,
           end: `top+=${skills.length * 60 + 40}vh top`,
-          scrub: 1.5,
+          scrub: 1,
           ease: 'power1.inOut',
         }
       }
@@ -66,12 +66,12 @@ const Skills = () => {
       className='py-10 align-element' 
       id='skills' 
       ref={containerRef}
-      style={{ minHeight: `${skills.length * 60 + 60}vh` }}
+      style={{ minHeight: `${skills.length }vh` }}
     >
       <SectionTitle text='tech stack' />
       
       {/* Cards Container */}
-      <div className='relative flex items-center justify-center' style={{ minHeight: '100vh' }}>
+      <div className='relative flex items-center justify-center' >
         <div className='sticky top-20 w-full max-w-6xl' style={{ perspective: '1000px', minHeight: '70vh' }}>
           {/* Animated Card Stack */}
           {skills.map((skill, index) => {

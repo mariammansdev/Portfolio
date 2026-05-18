@@ -1,10 +1,44 @@
 import { FaGithubSquare, FaLinkedin, FaTwitterSquare } from 'react-icons/fa';
 import { TbWorldWww } from 'react-icons/tb';
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-const ProjectsCard = ({ url, img, github, title, text }) => {
+gsap.registerPlugin(ScrollTrigger);
+
+const ProjectsCard = ({ url, img, github, title, text, index }) => {
+  const cardRef = useRef(null);
+
+  useEffect(() => {
+    const card = cardRef.current;
+    
+    gsap.fromTo(
+      card,
+      {
+        yPercent: 100,
+      },
+      {
+        yPercent: 0,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: card,
+          start: 'top bottom',
+          end: 'top top',
+          scrub: 1,
+        },
+      }
+    );
+  }, []);
+
   return (
-    <article className='card flex bg-white rounded-xl shadow-2xl hover:shadow-3xl duration-300 border-8 border-white overflow-hidden h-full'>
-       <div className='capitalize p-8 flex-1 flex flex-col'>
+    <article 
+      ref={cardRef}
+      className='flex rounded-xl hover:shadow-3xl duration-300 overflow-hidden h-screen w-full sticky top-0 bg-white'
+      style={{ zIndex: index }}
+    >
+       <div 
+         className='capitalize p-8 flex-1 flex flex-col'
+       >
         <h2 className='text-xl tracking-wide font-medium'>{title}</h2>
         <p className='mt-4 text-slate-700 leading-loose flex-1'>{text}</p>
         <div className='mt-4 flex gap-x-4'>
@@ -16,7 +50,9 @@ const ProjectsCard = ({ url, img, github, title, text }) => {
           </a>
         </div>
       </div>
-      <div className='flex-1 img-wrapper'>
+      <div 
+        className='flex-1 img-wrapper'
+      >
         <img
           src={img}
           alt={title}

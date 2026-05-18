@@ -7,9 +7,9 @@ const Projects = () => {
   return (
     <section className='py-20 align-element' id='projects'>
       <SectionTitle text='web creations' />
-      <div className='py-16 grid gap-8'>
-        {projects.map((project) => {
-          return <ProjectsCard key={project.id} {...project} />;
+      <div className='relative'>
+        {projects.map((project, index) => {
+          return <ProjectsCard key={project.id} {...project} index={index} />;
         })}
       </div>
     </section>
