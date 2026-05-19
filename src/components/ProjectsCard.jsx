@@ -12,6 +12,23 @@ const ProjectsCard = ({ url, img, github, title, text, index }) => {
   useEffect(() => {
     const card = cardRef.current;
     
+    if (index === 0) {
+        gsap.fromTo(
+        card,
+        {
+          opacity: 0,
+          // y:50
+        },
+        {
+          opacity: 1,
+          // y:0,
+          ease: 'sine.inOut'
+        }
+      );
+      return;
+    }
+    
+    
     gsap.fromTo(
       card,
       {
@@ -28,7 +45,7 @@ const ProjectsCard = ({ url, img, github, title, text, index }) => {
         },
       }
     );
-  }, []);
+  }, [index]);
 
   return (
     <article 

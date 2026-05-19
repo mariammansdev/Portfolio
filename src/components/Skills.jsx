@@ -10,6 +10,7 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const Skills = () => {
   const containerRef = useRef(null);
+  const cardsWrapperRef = useRef(null);
   const staticCardsRef = useRef(null);
   
   // Generate random rotation angles for each card
@@ -20,42 +21,47 @@ const Skills = () => {
 
   useGSAP(() => {
     const cards = gsap.utils.toArray('.skill-card');
-    const scrollDistance = 70; // Balanced speed - noticeable but not too slow
+    const totalDuration = skills.length * 300; // 100vh per card
     
+    // Create a master timeline for all card animations
+    const masterTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: cardsWrapperRef.current,
+        start: 'top top',
+        end: `+=${totalDuration}vh`,
+        pin: true,
+        pinSpacing: true,
+        scrub: 1.5,
+      }
+    });
+    
+    // Add each card animation to the timeline
     cards.forEach((card, index) => {
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: `top+=${index * scrollDistance}vh top`,
-          end: `top+=${(index + 1) * scrollDistance}vh top`,
-          scrub: 1.5,
-          ease: 'power1.inOut',
-        }
-      })
-      .to(card, {
+      masterTimeline.to(card, {
         y: -200,
         rotation: cardRotations[index] + (Math.random() > 0.5 ? 20 : -20),
         opacity: 0,
         scale: 0.6,
         ease: 'power1.out',
-      });
+        duration: 1,
+      }, index); // Position in timeline
     });
 
     // Animate static cards to appear after all cards are gone
     gsap.fromTo(staticCardsRef.current,
       {
         opacity: 0,
-        y: 20
+        y: 50
       },
       {
         opacity: 1,
-        y: -300,
+        y: 0,
+        duration: 1,
         scrollTrigger: {
-          trigger: containerRef.current,
-          start: `top+=${skills.length * 60}vh top`,
-          end: `top+=${skills.length * 60 + 40}vh top`,
+          trigger: staticCardsRef.current,
+          start: 'top 80%',
+          end: 'top 50%',
           scrub: 1,
-          ease: 'power1.inOut',
         }
       }
     );
@@ -63,16 +69,15 @@ const Skills = () => {
 
   return (
     <section 
-      className='py-10 align-element' 
+      className='py-20 align-element' 
       id='skills' 
       ref={containerRef}
-      style={{ minHeight: `${skills.length }vh` }}
     >
       <SectionTitle text='tech stack' />
       
-      {/* Cards Container */}
-      <div className='relative flex items-center justify-center mt-14' >
-        <div className='sticky top-20 w-full max-w-xl' style={{ perspective: '1000px', minHeight: '70vh' }}>
+      {/* Cards Container - This gets pinned */}
+      <div ref={cardsWrapperRef} className='relative flex items-center justify-center mt-4 lg:mt-2 min-h-screen'>
+        <div className='w-full max-w-xl' style={{ perspective: '1000px', minHeight: '70vh' }}>
           {/* Animated Card Stack */}
           {skills.map((skill, index) => {
             return (
@@ -86,7 +91,14 @@ const Skills = () => {
                 }}
               >
                 <div className='w-full'>
-                  <SkillsCard {...skill} />
+                  <div className={'card flex flex-col bg-white rounded-xl shadow-2xl hover:shadow-3xl duration-300 border-8 border-white overflow-hidden h-full min-h-[600px] max-w-[380px] mx-auto p-8'}
+                      style={skill.image ? {
+                        backgroundImage: `url(${skill.image})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        backgroundRepeat: 'no-repeat'
+                      } : {}}>
+                    </div>
                 </div>
               </div>
             );
@@ -97,7 +109,7 @@ const Skills = () => {
       {/* Static Cards Grid - Appears below the animation */}
       <div 
         ref={staticCardsRef} 
-        className='py-2 grid gap-8 md:grid-cols-2 lg:grid-cols-3' 
+        className='py-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3' 
         style={{ opacity: 0 }}
       >
         {skills.map((skill) => {

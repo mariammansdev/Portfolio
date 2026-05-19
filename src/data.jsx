@@ -1,6 +1,16 @@
 import { nanoid } from 'nanoid';
 import { FaHtml5, FaJs, FaReact } from 'react-icons/fa';
 import { SiSencha } from "react-icons/si";
+import jsImage from './assets/js.png'
+import extjsImage from './assets/extjs_logo.png'
+import reactImage from './assets/react.png'
+import nextImage from './assets/nextjs.png'
+import playwrightImage from './assets/playwright.png'
+import postmanImage from './assets/postman.png'
+import tailwindImage from './assets/tailwind.png'
+import sqlImage from './assets/sql.png'
+import htmlCssImage from './assets/htmlCss.png'
+
 export const links = [
   { id: nanoid(), href: '#home', text: 'home' },
   { id: nanoid(), href: '#skills', text: 'skills' },
@@ -14,24 +24,63 @@ export const skills = [
     title: 'Ext JS',
     icon: <SiSencha  className='h-16 w-16 text-emerald-500' />,
     text: 'Highly skilled in Sencha ExtJS 6, creating performant and user-friendly interfaces for tourism-focused websites.',
+    image: extjsImage
   },
   {
     id: nanoid(),
     title: 'HTML&CSS',
     icon: <FaHtml5 className='h-16 w-16 text-emerald-500' />,
     text: 'Highly skilled in HTML & CSS, adeptly crafting visually appealing and responsive websites for optimal user experiences.',
+    image: htmlCssImage
   },
   {
     id: nanoid(),
     title: 'Javascript',
     icon: <FaJs className='h-16 w-16 text-emerald-500' />,
     text: 'Expertise in JavaScript, building interactive and dynamic web applications with a focus on seamless user interactions and functionality',
+    image: jsImage
   },
   {
     id: nanoid(),
     title: 'React',
     icon: <FaReact className='h-16 w-16 text-emerald-500' />,
     text: 'Advanced proficiency in React, developing efficient and interactive front-end applications with a strong emphasis on component-based architecture.',
+    image: reactImage
+  },
+  {
+    id: nanoid(),
+    title: 'Next',
+    icon: <FaReact className='h-16 w-16 text-emerald-500' />,
+    text: 'Advanced proficiency in React, developing efficient and interactive front-end applications with a strong emphasis on component-based architecture.',
+    image: nextImage
+  },
+  {
+    id: nanoid(),
+    title: 'Playwright',
+    icon: <FaReact className='h-16 w-16 text-emerald-500' />,
+    text: 'Advanced proficiency in React, developing efficient and interactive front-end applications with a strong emphasis on component-based architecture.',
+    image: playwrightImage
+  },
+  {
+    id: nanoid(),
+    title: 'Postman',
+    icon: <FaReact className='h-16 w-16 text-emerald-500' />,
+    text: 'Advanced proficiency in React, developing efficient and interactive front-end applications with a strong emphasis on component-based architecture.',
+    image: postmanImage
+  },
+  {
+    id: nanoid(),
+    title: 'SQL',
+    icon: <FaReact className='h-16 w-16 text-emerald-500' />,
+    text: 'Advanced proficiency in React, developing efficient and interactive front-end applications with a strong emphasis on component-based architecture.',
+    image: sqlImage
+  },
+  {
+    id: nanoid(),
+    title: 'Tailwind',
+    icon: <FaReact className='h-16 w-16 text-emerald-500' />,
+    text: 'Advanced proficiency in React, developing efficient and interactive front-end applications with a strong emphasis on component-based architecture.',
+    image: tailwindImage
   },
 ];
 
