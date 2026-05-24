@@ -1,9 +1,39 @@
 import aboutSvg from '../assets/about.svg';
 import SectionTitle from './SectionTitle';
+import typingImage from '../assets/typing.png'
+import { useRef } from 'react';
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
+
 const About = () => {
+  const cardRef = useRef(null);
+  useGSAP(() => {
+    
+    const card = cardRef.current;
+    
+        gsap.fromTo(
+        card,
+        {
+          opacity: 0,
+          y: 0,
+          scale: 1
+        },
+        {
+          opacity: 1,
+          y: 90,
+          duration: 4,
+          scale: 0.4,
+          ease: 'sine.inOut'
+        }
+      );
+  });
   return (
     <section className='bg-white py-20' id='about'>
-      <div className='align-element grid md:grid-cols-2 items-center gap-16'>
+
+      <div className='max-w-2xl flex align-element' ref={cardRef}>
+        <img src={typingImage}></img>
+      </div>
+      {/* <div className='align-element grid md:grid-cols-2 items-center gap-16'>
         <img src={aboutSvg} className='w-full h-64' />
         <article>
           <SectionTitle text='code and coffee' />
@@ -14,7 +44,7 @@ const About = () => {
             I see myself not just as a frontend developer, but as someone who enjoys the craft of building, collaborating across cultures, and always learning the next thing that makes the web more interactive, scalable, and human-friendly.
           </p>
         </article>
-      </div>
+      </div> */}
     </section>
   );
 };

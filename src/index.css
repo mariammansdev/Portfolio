@@ -5,6 +5,21 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    min-height: 100%;
+  }
+
+  body {
+    min-height: 100%;
+    margin: 0;
+    background-image: url('/bg.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+
+  #root {
+    min-height: 100vh;
   }
 }
 
