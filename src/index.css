@@ -27,4 +27,18 @@
   .align-element {
     @apply mx-auto max-w-7xl px-8;
   }
+  
+  .typing-cursor {
+    animation: blink 0.7s infinite;
+    font-weight: 100;
+  }
+  
+  @keyframes blink {
+    0%, 50% {
+      opacity: 1;
+    }
+    51%, 100% {
+      opacity: 0;
+    }
+  }
 }

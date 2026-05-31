@@ -1,6 +1,6 @@
 import { nanoid } from 'nanoid';
-import { FaHtml5, FaJs, FaReact } from 'react-icons/fa';
-import { SiSencha } from "react-icons/si";
+import { FaHtml5, FaJs, FaReact, FaGit, FaDatabase } from 'react-icons/fa';
+import { SiSencha, SiPlaywright, SiPostman, SiTailwindcss, SiNextdotjs } from "react-icons/si";
 import jsImage from './assets/js.png'
 import extjsImage from './assets/extjs_logo.png'
 import reactImage from './assets/react.png'
@@ -10,6 +10,7 @@ import postmanImage from './assets/postman.png'
 import tailwindImage from './assets/tailwind.png'
 import sqlImage from './assets/sql.png'
 import htmlCssImage from './assets/htmlCss.png'
+import gitImage from './assets/git.png'
 
 export const links = [
   { id: nanoid(), href: '#home', text: 'home' },
@@ -21,65 +22,72 @@ export const links = [
 export const skills = [
   {
     id: nanoid(),
+    title: 'Git',
+    icon: <FaGit className='h-16 w-16 text-emerald-500' />,
+    text: 'Strong experience with Git, used daily in a collaborative environment for version control, code management, and deployment workflows.',
+    image: gitImage
+  },
+  {
+    id: nanoid(),
     title: 'Ext JS',
     icon: <SiSencha  className='h-16 w-16 text-emerald-500' />,
-    text: 'Highly skilled in Sencha ExtJS 6, creating performant and user-friendly interfaces for tourism-focused websites.',
+    text: 'Highly skilled in Sencha ExtJS, building performant and user-friendly interfaces for company-owned tourism websites',
     image: extjsImage
   },
   {
     id: nanoid(),
     title: 'HTML&CSS',
     icon: <FaHtml5 className='h-16 w-16 text-emerald-500' />,
-    text: 'Highly skilled in HTML & CSS, adeptly crafting visually appealing and responsive websites for optimal user experiences.',
+    text: 'Solid experience in HTML & CSS, with continuous practice since undergraduate studies and applied in professional projects to build and style responsive web interfaces.',
     image: htmlCssImage
   },
   {
     id: nanoid(),
     title: 'Javascript',
     icon: <FaJs className='h-16 w-16 text-emerald-500' />,
-    text: 'Expertise in JavaScript, building interactive and dynamic web applications with a focus on seamless user interactions and functionality',
+    text: 'Proficient in JavaScript, with hands-on experience using Node.js and daily development with ExtJS, applying it consistently to build dynamic, data-driven web applications.',
     image: jsImage
   },
-  {
-    id: nanoid(),
-    title: 'React',
-    icon: <FaReact className='h-16 w-16 text-emerald-500' />,
-    text: 'Advanced proficiency in React, developing efficient and interactive front-end applications with a strong emphasis on component-based architecture.',
-    image: reactImage
-  },
-  {
-    id: nanoid(),
-    title: 'Next',
-    icon: <FaReact className='h-16 w-16 text-emerald-500' />,
-    text: 'Advanced proficiency in React, developing efficient and interactive front-end applications with a strong emphasis on component-based architecture.',
-    image: nextImage
-  },
-  {
+    {
     id: nanoid(),
     title: 'Playwright',
-    icon: <FaReact className='h-16 w-16 text-emerald-500' />,
-    text: 'Advanced proficiency in React, developing efficient and interactive front-end applications with a strong emphasis on component-based architecture.',
+    icon: <SiPlaywright className='h-16 w-16 text-emerald-500' />,
+    text: 'Experience with Playwright, creating and maintaining usability and end-to-end tests for company projects to ensure application reliability.',
     image: playwrightImage
   },
   {
     id: nanoid(),
     title: 'Postman',
-    icon: <FaReact className='h-16 w-16 text-emerald-500' />,
-    text: 'Advanced proficiency in React, developing efficient and interactive front-end applications with a strong emphasis on component-based architecture.',
+    icon: <SiPostman className='h-16 w-16 text-emerald-500' />,
+    text: 'Experience with Postman, used for API testing, request validation, and collection management in real project workflows.',
     image: postmanImage
   },
   {
     id: nanoid(),
     title: 'SQL',
-    icon: <FaReact className='h-16 w-16 text-emerald-500' />,
-    text: 'Advanced proficiency in React, developing efficient and interactive front-end applications with a strong emphasis on component-based architecture.',
+    icon: <FaDatabase className='h-16 w-16 text-emerald-500' />,
+    text: 'Working knowledge of Oracle SQL, applying it in real projects to support backend services, including writing queries, and validating data types and constraints.',
     image: sqlImage
   },
   {
     id: nanoid(),
-    title: 'Tailwind',
+    title: 'React',
     icon: <FaReact className='h-16 w-16 text-emerald-500' />,
-    text: 'Advanced proficiency in React, developing efficient and interactive front-end applications with a strong emphasis on component-based architecture.',
+    text: 'Working knowledge of React, with structured learning and consistent hands-on practice through courses and self-driven projects.',
+    image: reactImage
+  },
+  {
+    id: nanoid(),
+    title: 'Next.js',
+    icon: <SiNextdotjs className='h-16 w-16 text-emerald-500' />,
+    text: 'Basic knowledge of Next.js, recently started learning with hands-on practice and exploration of core concepts.',
+    image: nextImage
+  },
+  {
+    id: nanoid(),
+    title: 'Tailwind',
+    icon: <SiTailwindcss className='h-16 w-16 text-emerald-500' />,
+    text: 'Tailwind CSS, with solid understanding gained through structured learning and hands-on practice in personal projects.',
     image: tailwindImage
   },
 ];

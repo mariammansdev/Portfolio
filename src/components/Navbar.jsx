@@ -1,8 +1,9 @@
 import { links } from '../data';
+import navBG from '../assets/navBG.png';
 
 const Navbar = () => {
   return (
-    <nav className='bg-emerald-100'>
+    <nav className='fixed w-full z-50 bg-cover bg-center ' style={{ backgroundImage: `url(${navBG})` }}>
       <div className='align-element py-4 flex flex-col sm:flex-row sm:gap-x-16 sm:items-center sm:py-8'>
         <h2 className='text-3xl font-bold'>
           Web<span className='text-emerald-600'>Dev</span>

@@ -17,34 +17,40 @@ const ProjectsCard = ({ url, img, github, title, text, index }) => {
         card,
         {
           opacity: 0,
-          // y:50
         },
         {
           opacity: 1,
-          // y:0,
           ease: 'sine.inOut'
         }
       );
       return;
     }
     
+    // Set initial position - card is hidden below
+    gsap.set(card, { yPercent: 100 });
     
-    gsap.fromTo(
-      card,
-      {
-        yPercent: 100,
+    // Create scroll-triggered reveal animation
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: card,
+        start: 'top bottom',
+        end: 'bottom bottom',
+        scrub: 1.5,
+        // pin: true,
+        // pinSpacing: true,
+        markers: false, // Set to true to debug scroll positions
       },
-      {
-        yPercent: 0,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: card,
-          start: 'top bottom',
-          end: 'top top',
-          scrub: 1,
-        },
-      }
-    );
+    });
+
+    // Animate card sliding up as you scroll
+    tl.to(card, {
+      yPercent: 0,
+      ease: 'none',
+    });
+
+    return () => {
+      tl.kill();
+    };
   }, [index]);
 
   return (
