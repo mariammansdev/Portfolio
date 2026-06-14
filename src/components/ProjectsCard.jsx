@@ -56,8 +56,7 @@ const ProjectsCard = ({ url, img, github, title, text, index }) => {
   return (
     <article 
       ref={cardRef}
-      className='flex rounded-xl hover:shadow-3xl duration-300 overflow-hidden h-screen w-full sticky top-0 bg-white'
-      style={{ zIndex: index }}
+className='flex rounded-xl hover:shadow-3xl duration-300 overflow-hidden min-h-screen w-full bg-white'      style={{ zIndex: index }}
     >
        <div 
          className='capitalize p-8 flex-1 flex flex-col'

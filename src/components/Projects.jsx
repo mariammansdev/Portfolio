@@ -11,6 +11,7 @@ const Projects = () => {
         {projects.map((project, index) => {
           return <ProjectsCard key={project.id} {...project} index={index} />;
         })}
+        <div className='h-screen' />
       </div>
     </section>
   );
