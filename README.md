@@ -23,7 +23,7 @@ My personal portfolio website showcasing my experience, skills, and selected fro
 ## Run Locally
 
 ```bash
-git clone https://github.com/yourusername/portfolio.git
+git clone (https://github.com/mariammansdev/Portfolio.git)
 cd portfolio
 npm install
 npm run dev
@@ -34,7 +34,3 @@ npm run dev
 ```bash
 npm run build
 ```
-
-## License
-
-This project is for personal portfolio purposes.
