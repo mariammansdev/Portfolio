@@ -4,7 +4,9 @@ My personal portfolio website showcasing my experience, skills, and selected fro
 
 ## Live Website
 
-🌐 [https://your-portfolio.netlify.app](https://mariamdev-portfolio.netlify.app/)
+🌐 (https://mariammansdev.github.io/Portfolio/)
+🌐 (https://mariamdev-portfolio.netlify.app/)
+
 
 ## Built With
 
